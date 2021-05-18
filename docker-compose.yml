@@ -1,0 +1,30 @@
+version: '3.1'
+
+services: 
+    backend:
+        image: maven:3.8.1-jdk-11
+        command: mvn spring-boot:run
+        ports:
+            - 8080:8080
+        volumes:
+            - maven-repository:/root/.m2
+            - ./backend:/usr/src/backend:rw
+        working_dir: /usr/src/backend
+        depends_on:
+            - database
+        environment: 
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/spring
+            - SPRING_DATASOURCE_USERNAME=user
+            - SPRING_DATASOURCE_PASSWORD=user
+            - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+    database:
+        image: postgres:13.3-alpine
+        restart: always
+        environment: 
+            POSTGRES_USER: user
+            POSTGRES_PASSWORD: user
+            POSTGRES_DB: spring
+
+volumes:
+    maven-repository:
