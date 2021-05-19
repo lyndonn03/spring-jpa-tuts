@@ -21,7 +21,6 @@ public class SongServiceImpl implements SongService {
 
     @Override
     public Song addSong(Song song) {
-        song.setId(UUID.randomUUID());
         return songRepository.save(song);
     }
 
@@ -35,7 +34,7 @@ public class SongServiceImpl implements SongService {
         Optional<Song> song = songRepository.findById(id);
         if(song.isPresent())
             return song.get();
-        throw new NotFoundException(notFoundExceptionMessage(id));
+        throw new NotFoundException("Song", id);
     }
 
     @Override
@@ -44,7 +43,7 @@ public class SongServiceImpl implements SongService {
             songRepository.deleteById(id); 
             return;      
         }
-        throw new NotFoundException(notFoundExceptionMessage(id));
+        throw new NotFoundException("Song", id);
     }
 
     @Override
@@ -54,11 +53,9 @@ public class SongServiceImpl implements SongService {
         if(songRepository.existsById(song.getId())) {
             return songRepository.save(song); 
         }
-        throw new NotFoundException(notFoundExceptionMessage(song.getId()));
+        throw new NotFoundException("Song", song.getId());
     }
 
-    private String notFoundExceptionMessage(UUID id) {
-        return "Song with id: " + id.toString() + " not found.";
-    }
+   
     
 }

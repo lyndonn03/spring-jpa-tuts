@@ -18,10 +18,10 @@ public class GlobalExceptionHandler {
         return new ApiError(ex, HttpStatus.NOT_FOUND.value());
     }
 
-    @ExceptionHandler(value = {InvalidFormatException.class})
+    @ExceptionHandler(value = {InvalidFormatException.class, IllegalArgumentException.class})
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiError handleInvalidFormatException(InvalidFormatException ex) {
+    public ApiError handleInvalidFormatException(Exception ex) {
         return new ApiError(ex, HttpStatus.BAD_REQUEST.value());
     }
     
