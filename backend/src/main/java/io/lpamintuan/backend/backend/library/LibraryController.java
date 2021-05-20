@@ -3,6 +3,7 @@ package io.lpamintuan.backend.backend.library;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
@@ -29,7 +30,7 @@ public class LibraryController {
     }
 
     @PostMapping
-    public LibraryRepresentation createLibrary(@RequestBody Library library) {
+    public LibraryRepresentation createLibrary(@RequestBody @Valid Library library) {
         return new LibraryRepresentationAssembler(). toModel(libraryService.addLibrary(library));
     }
 
@@ -46,7 +47,7 @@ public class LibraryController {
     }
 
     @PutMapping("/{id}")
-    public LibraryRepresentation updateLibrary(@PathVariable UUID id, @RequestBody Library library) throws NotFoundException {
+    public LibraryRepresentation updateLibrary(@PathVariable UUID id, @RequestBody @Valid Library library) throws NotFoundException {
         return new LibraryRepresentationAssembler().toModel(libraryService.updateLibrary(id, library));
     }
 

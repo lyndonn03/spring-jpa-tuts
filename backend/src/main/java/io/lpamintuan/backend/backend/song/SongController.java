@@ -2,6 +2,8 @@ package io.lpamintuan.backend.backend.song;
 
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,12 +39,12 @@ public class SongController {
     }
 
     @PostMapping
-    public SongRepresentation addSong(@RequestBody Song song) {
+    public SongRepresentation addSong(@RequestBody @Valid Song song) {
         return new SongRepresentationAssembler().toModel(songService.addSong(song));
     }
     
     @PutMapping("/{id}")
-    public SongRepresentation updateSong(@PathVariable UUID id, @RequestBody Song song) throws NotFoundException {
+    public SongRepresentation updateSong(@PathVariable UUID id, @RequestBody @Valid Song song) throws NotFoundException {
         return new SongRepresentationAssembler().toModel(songService.updateSong(id, song));
     }
 
