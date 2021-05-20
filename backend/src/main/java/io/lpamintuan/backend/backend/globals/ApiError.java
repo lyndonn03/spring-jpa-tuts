@@ -1,4 +1,4 @@
-package io.lpamintuan.backend.backend.exceptions;
+package io.lpamintuan.backend.backend.globals;
 
 import java.sql.Timestamp;
 import java.util.Date;

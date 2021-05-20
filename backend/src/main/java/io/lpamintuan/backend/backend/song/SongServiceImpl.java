@@ -7,7 +7,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import io.lpamintuan.backend.backend.exceptions.NotFoundException;
+import io.lpamintuan.backend.backend.globals.NotFoundException;
 
 @Service
 public class SongServiceImpl implements SongService {

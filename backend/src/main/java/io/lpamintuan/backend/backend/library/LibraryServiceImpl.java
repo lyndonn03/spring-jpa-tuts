@@ -7,7 +7,8 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import io.lpamintuan.backend.backend.exceptions.NotFoundException;
+import io.lpamintuan.backend.backend.globals.NotFoundException;
+import io.lpamintuan.backend.backend.song.Song;
 
 @Service
 public class LibraryServiceImpl implements LibraryService {
@@ -55,6 +56,16 @@ public class LibraryServiceImpl implements LibraryService {
             return;
         }
         throw new NotFoundException("Library", id);
+    }
+
+    @Override
+    public Song addSong(Song song) throws NotFoundException {
+        return null;
+    }
+
+    @Override
+    public void deleteSong(UUID id) throws NotFoundException {
+        
     }
     
 }

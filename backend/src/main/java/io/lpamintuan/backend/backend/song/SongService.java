@@ -3,7 +3,7 @@ package io.lpamintuan.backend.backend.song;
 import java.util.List;
 import java.util.UUID;
 
-import io.lpamintuan.backend.backend.exceptions.NotFoundException;
+import io.lpamintuan.backend.backend.globals.NotFoundException;
 
 public interface SongService {
     public Song addSong(Song song);

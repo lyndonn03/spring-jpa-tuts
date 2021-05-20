@@ -1,4 +1,4 @@
-package io.lpamintuan.backend.backend.exceptions;
+package io.lpamintuan.backend.backend.globals;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 
