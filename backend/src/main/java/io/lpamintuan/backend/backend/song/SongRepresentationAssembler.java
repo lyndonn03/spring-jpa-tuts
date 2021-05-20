@@ -26,6 +26,12 @@ public class SongRepresentationAssembler extends RepresentationModelAssemblerSup
     @Override
     public CollectionModel<SongRepresentation> toCollectionModel(Iterable<? extends Song> entities) {
         CollectionModel<SongRepresentation> collection = super.toCollectionModel(entities);
+        collection.add(
+            WebMvcLinkBuilder.linkTo(
+                WebMvcLinkBuilder.methodOn(SongController.class)
+                .getAllSongs()
+            ).withSelfRel()
+        );
         return collection;
     }
 }
