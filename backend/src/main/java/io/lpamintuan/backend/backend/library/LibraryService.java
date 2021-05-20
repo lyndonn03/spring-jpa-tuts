@@ -9,7 +9,7 @@ import io.lpamintuan.backend.backend.song.Song;
 public interface LibraryService {
     
     public Library addLibrary(Library library);
-    public Library updateLibrary(Library library) throws NotFoundException;
+    public Library updateLibrary(UUID id, Library library) throws NotFoundException;
     public List<Library> getAllLibraries();
     public Library getLibrary(UUID id) throws NotFoundException;
     public void deleteLibrary(UUID  id) throws NotFoundException;

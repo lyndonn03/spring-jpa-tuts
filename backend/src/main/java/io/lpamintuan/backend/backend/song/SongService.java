@@ -14,5 +14,5 @@ public interface SongService {
 
     public void deleteSong(UUID id) throws NotFoundException;
 
-    public Song updateSong(Song song) throws NotFoundException;
+    public Song updateSong(UUID id, Song song) throws NotFoundException;
 }

@@ -1,5 +1,6 @@
 package io.lpamintuan.backend.backend.librarycontent;
 
+import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -8,6 +9,7 @@ import javax.persistence.MapsId;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
+
 
 import io.lpamintuan.backend.backend.globals.Views;
 import io.lpamintuan.backend.backend.library.Library;

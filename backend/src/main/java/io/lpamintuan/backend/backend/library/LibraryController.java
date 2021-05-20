@@ -44,7 +44,7 @@ public class LibraryController {
 
     @PutMapping("/{id}")
     public Library updateLibrary(@PathVariable UUID id, @RequestBody Library library) throws NotFoundException {
-        return libraryService.updateLibrary(library);
+        return libraryService.updateLibrary(id, library);
     }
 
     @DeleteMapping("/{id}")

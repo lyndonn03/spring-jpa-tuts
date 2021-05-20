@@ -11,6 +11,8 @@ import javax.persistence.PrePersist;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import org.springframework.data.annotation.ReadOnlyProperty;
+
 import io.lpamintuan.backend.backend.librarycontent.LibraryContent;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -29,6 +31,7 @@ public class Library {
 
     @OneToMany(mappedBy = "library", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
+    @ReadOnlyProperty
     private List<LibraryContent> contents;
 
     public Library(String name) {

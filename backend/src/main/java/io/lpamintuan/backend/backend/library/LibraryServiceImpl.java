@@ -26,12 +26,11 @@ public class LibraryServiceImpl implements LibraryService {
     }
 
     @Override
-    public Library updateLibrary(Library library) throws NotFoundException {
-        if(library.getId() == null) {
-            throw new NotFoundException("Song id is empty. Please make sure that song.id is a valid UUID.");
-        }
-        if(libraryRepository.existsById(library.getId())) {
-           return libraryRepository.save(library); 
+    public Library updateLibrary(UUID id, Library library) throws NotFoundException {
+        if(libraryRepository.existsById(id)) {
+            library.setId(id);
+            libraryRepository.updateLibraryBId(id, library.getName()); 
+            return library;
         }
         throw new NotFoundException("Library", library.getId());
     }

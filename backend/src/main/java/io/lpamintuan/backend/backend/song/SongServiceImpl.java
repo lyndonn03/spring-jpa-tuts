@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,13 +49,13 @@ public class SongServiceImpl implements SongService {
     }
 
     @Override
-    public Song updateSong(Song song) throws NotFoundException {
-        if(song.getId() == null)
-            throw new NotFoundException("Song id is empty. Please make sure that song.id is a valid UUID.");
-        if(songRepository.existsById(song.getId())) {
-            return songRepository.save(song); 
+    public Song updateSong(UUID id, Song song) throws NotFoundException {
+        song.setId(id);
+        if(songRepository.existsById(id)) {
+            songRepository.updateSongDetailsById(song.getId(), song.getTitle(), song.getArtist());
+            return song;
         }
-        throw new NotFoundException("Song", song.getId());
+        throw new NotFoundException("Song",id);
     }
 
    

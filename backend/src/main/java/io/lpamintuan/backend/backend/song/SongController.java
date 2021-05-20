@@ -43,7 +43,7 @@ public class SongController {
     
     @PutMapping("/{id}")
     public Song updateSong(@PathVariable UUID id, @RequestBody Song song) throws NotFoundException {
-        return songService.updateSong(song);
+        return songService.updateSong(id, song);
     }
 
     @DeleteMapping("/{id}")
