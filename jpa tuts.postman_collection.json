@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "4a901ed9-9ed7-4157-aa15-85a5ce47dbac",
+		"name": "jpa tuts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "songs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/songs",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"songs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "songs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"My Song\",\r\n    \"artist\": \"Lyndonn Pamintuan\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/songs",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"songs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "songs",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/songs/6897e589-8d88-48ca-80b0-712b08229840",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"songs",
+						"6897e589-8d88-48ca-80b0-712b08229840"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "songs",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"fdca3ce3-ce64-4f4a-8454-38c73a579cd3\",\r\n    \"artist\": \"Edited Artist\",\r\n    \"title\": \"Breakeven\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/songs/fdca3ce3-ce64-4f4a-8454-38c73a579cd3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"songs",
+						"fdca3ce3-ce64-4f4a-8454-38c73a579cd3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "library content",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/libraries/content/582d60a8-03c5-4c74-abc4-909649b52e01",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libraries",
+						"content",
+						"582d60a8-03c5-4c74-abc4-909649b52e01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "library content",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": \"8fb0a135-1381-43c0-bb57-0959dcf795b8\",\r\n        \"title\": \"Man Who Cant Be Moved\",\r\n        \"artist\": \"The Script\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/libraries/content/18f8d973-f67b-4914-80d6-d7412e65bdd5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libraries",
+						"content",
+						"18f8d973-f67b-4914-80d6-d7412e65bdd5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "library content song",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/libraries/content/18f8d973-f67b-4914-80d6-d7412e65bdd5/song/fdca3ce3-ce64-4f4a-8454-38c73a579cd3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libraries",
+						"content",
+						"18f8d973-f67b-4914-80d6-d7412e65bdd5",
+						"song",
+						"fdca3ce3-ce64-4f4a-8454-38c73a579cd3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "library content song",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/libraries/content/18f8d973-f67b-4914-80d6-d7412e65bdd5/song/fdca3ce3-ce64-4f4a-8454-38c73a579cd3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libraries",
+						"content",
+						"18f8d973-f67b-4914-80d6-d7412e65bdd5",
+						"song",
+						"fdca3ce3-ce64-4f4a-8454-38c73a579cd3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "library",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/libraries",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libraries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "library",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Lyndonn's Songs\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/libraries",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libraries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "library",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/libraries/582d60a8-03c5-4c74-abc4-909649b52e01",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libraries",
+						"582d60a8-03c5-4c74-abc4-909649b52e01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "library",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Edited Sorrow Nights\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/libraries/582d60a8-03c5-4c74-abc4-909649b52e01",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libraries",
+						"582d60a8-03c5-4c74-abc4-909649b52e01"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

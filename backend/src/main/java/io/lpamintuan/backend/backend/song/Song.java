@@ -1,7 +1,6 @@
 package io.lpamintuan.backend.backend.song;
 
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
@@ -19,13 +18,11 @@ import org.springframework.data.annotation.ReadOnlyProperty;
 
 import io.lpamintuan.backend.backend.librarycontent.LibraryContent;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
-@EqualsAndHashCode
 @Table(name = "song")
 public class Song {
 

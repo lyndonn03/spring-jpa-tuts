@@ -1,9 +1,9 @@
 package io.lpamintuan.backend.backend.song;
 
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,23 +27,23 @@ public class SongController {
     }
 
     @GetMapping
-    public List<Song> getAllSongs() {
-        return songService.getSongs();
+    public CollectionModel<SongRepresentation> getAllSongs() {
+        return new SongRepresentationAssembler().toCollectionModel(songService.getSongs());
     }
 
     @GetMapping("/{id}")
-    public Song getSong(@PathVariable UUID id) throws NotFoundException {
-        return songService.getSong(id);
+    public SongRepresentation getSong(@PathVariable UUID id) throws NotFoundException {
+        return new SongRepresentationAssembler().toModel(songService.getSong(id));
     }
 
     @PostMapping
-    public Song addSong(@RequestBody Song song) {
-        return songService.addSong(song);
+    public SongRepresentation addSong(@RequestBody Song song) {
+        return new SongRepresentationAssembler().toModel(songService.addSong(song));
     }
     
     @PutMapping("/{id}")
-    public Song updateSong(@PathVariable UUID id, @RequestBody Song song) throws NotFoundException {
-        return songService.updateSong(id, song);
+    public SongRepresentation updateSong(@PathVariable UUID id, @RequestBody Song song) throws NotFoundException {
+        return new SongRepresentationAssembler().toModel(songService.updateSong(id, song));
     }
 
     @DeleteMapping("/{id}")

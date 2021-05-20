@@ -1,6 +1,5 @@
 package io.lpamintuan.backend.backend.librarycontent;
 
-import java.util.Set;
 import java.util.UUID;
 
 import javax.validation.Valid;
@@ -8,6 +7,7 @@ import javax.validation.Valid;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,19 +36,19 @@ public class LibraryContentController {
 
     @GetMapping("/{id}")
     @JsonView(Views.Public.class)
-    public Set<LibraryContent> getLibraryContents(@PathVariable UUID id) {
-        return libraryContentService.getLibraryContents(id);
+    public CollectionModel<LibraryContentRepresentation> getLibraryContents(@PathVariable UUID id) {
+        return new LibraryContentRepresentationAssembler().toCollectionModel(libraryContentService.getLibraryContents(id), id);
     }
 
     @GetMapping("/{id}/song/{songId}")
     @JsonView(Views.Self.class)
-    public LibraryContent getLibraryContent(@PathVariable UUID id, @PathVariable UUID  songId ) throws NotFoundException {
-        return  libraryContentService.getLibraryContent(id, songId);
+    public LibraryContentRepresentation getLibraryContent(@PathVariable UUID id, @PathVariable UUID  songId ) throws NotFoundException {
+        return new LibraryContentRepresentationAssembler().toModel(libraryContentService.getLibraryContent(id, songId));
     }
 
     @PostMapping("/{id}")
-    public LibraryContent addLibraryContent(@RequestBody @Valid Song song, @PathVariable UUID id) throws NotFoundException {
-        return libraryContentService.addLibraryContent(song, id);
+    public LibraryContentRepresentation addLibraryContent(@RequestBody @Valid Song song, @PathVariable UUID id) throws NotFoundException {
+        return new LibraryContentRepresentationAssembler().toModel(libraryContentService.addLibraryContent(song, id)) ;
     }
 
     @DeleteMapping("/{id}/song/{songId}")

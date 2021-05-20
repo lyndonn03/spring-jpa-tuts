@@ -5,6 +5,7 @@ import java.util.UUID;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,23 +29,25 @@ public class LibraryController {
     }
 
     @PostMapping
-    public Library createLibrary(@RequestBody Library library) {
-        return libraryService.addLibrary(library);
+    public LibraryRepresentation createLibrary(@RequestBody Library library) {
+        return new LibraryRepresentationAssembler(). toModel(libraryService.addLibrary(library));
     }
 
     @GetMapping("/{id}")
-    public Library getLibrary(@PathVariable UUID id) throws NotFoundException {
-        return libraryService.getLibrary(id);
+    public LibraryRepresentation getLibrary(@PathVariable UUID id) throws NotFoundException {
+        return new LibraryRepresentationAssembler().toModel(libraryService.getLibrary(id));
     }
 
     @GetMapping
-    public List<Library> getAllLibraries() {
-        return libraryService.getAllLibraries();
+    public CollectionModel<LibraryRepresentation> getAllLibraries() {
+        List<Library> libraries = libraryService.getAllLibraries();
+        CollectionModel<LibraryRepresentation> collection = new LibraryRepresentationAssembler().toCollectionModel(libraries);
+        return collection;
     }
 
     @PutMapping("/{id}")
-    public Library updateLibrary(@PathVariable UUID id, @RequestBody Library library) throws NotFoundException {
-        return libraryService.updateLibrary(id, library);
+    public LibraryRepresentation updateLibrary(@PathVariable UUID id, @RequestBody Library library) throws NotFoundException {
+        return new LibraryRepresentationAssembler().toModel(libraryService.updateLibrary(id, library));
     }
 
     @DeleteMapping("/{id}")
